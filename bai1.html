@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label>Enter a number:</label></td>
+        <td><input id="input-number" type="number"></td>
+        <td><input id="show-number" type="button" value="show" onclick="printPrimeNumber()"></td>
+
+    </tr>
+    <tr><div id="result"></div></tr>
+</table>
+<script>
+    function printPrimeNumber(){
+        let sout = "";
+        let number = document.getElementById('input-number').value;
+        for(let i = number; i >= 2; i--){
+            if(isNumberPrime(i)){
+                sout = sout + i + " ";
+            }
+        }
+        document.getElementById('result').innerHTML = "Các số nguyên tố: " + sout;
+    }
+    function isNumberPrime(number) {
+        let count = 0;
+        for(let i = 2; i <= number; i++)
+        {
+            if(number % i ===0){
+                count++
+            }else if(count === 2 && i < number){
+                break;
+            }
+        }
+        if(count === 1)
+            return true;
+        else
+            return false;
+    }
+</script>
+
+</body>
+</html>
